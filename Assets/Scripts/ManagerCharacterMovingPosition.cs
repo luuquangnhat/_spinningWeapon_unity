@@ -8,12 +8,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class CharacterMoving1 : MonoBehaviour
+public class ManagerCharacterMovingPosition : MonoBehaviour
 {
     // variable to store the instance of the PlayerInput
     PlayerInput input;
     private float velocity;
-    private float acceleration = 0.02f;
+    private float acceleration = 2f;
     Vector3 storeDirection;
 
     private bool isMain;

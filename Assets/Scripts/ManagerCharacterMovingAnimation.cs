@@ -4,12 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TwoDimensionalAnimationStateController : MonoBehaviour
+public class ManagerCharacterMovingAnimation : MonoBehaviour
 {
     Animator animator;
     public float velocityZ = 0.0f;
     public float velocityX = 0.0f;
-    public float acceleration = 0.2f;
+    public float acceleration = 2f;
     public float deceleration = 0.2f;
     public float maximumWalkVelocity = 0.5f;
     public float maximumRunVelocity = 2.0f;
@@ -35,7 +35,7 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
             {
                 input.CharacterControls.Movement.performed += (ctx) =>
                 {
-                    //Debug.Log($"TwoDimensionalAnimationStateController - ctx {ctx}");
+                    //Debug.Log($"ManagerCharacterMovingAnimation - ctx {ctx}");
                     onMovement(ctx);
                 };
                 input.CharacterControls.Movement.canceled += onMovement;
@@ -46,7 +46,7 @@ public class TwoDimensionalAnimationStateController : MonoBehaviour
             {
                 input.CharacterControls.Movement.performed -= (ctx) =>
                 {
-                    //Debug.Log($"TwoDimensionalAnimationStateController - ctx {ctx}");
+                    //Debug.Log($"ManagerCharacterMovingAnimation - ctx {ctx}");
                     onMovement(ctx);
                 };
                 input.CharacterControls.Movement.canceled -= onMovement;

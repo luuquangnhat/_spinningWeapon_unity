@@ -6,8 +6,10 @@ using UnityEngine;
 public class ManagerWeaponObj1 : MonoBehaviour
 {
     public GameObject SlotTarget;
-    public float speed = 20;
     public ActionWeapon currentAction;
+    public int wpDamage = 20;
+    public int wpAttackSped = 2;
+    public int wpRange = 20;
 
     public enum ActionWeapon
     {
@@ -39,7 +41,6 @@ public class ManagerWeaponObj1 : MonoBehaviour
     void handleTakeAction()
     {
         if (!SlotTarget) return;
-        Debug.Log($"currentAction {currentAction}");
         switch (currentAction)
         {
             case ActionWeapon.IsIdle:

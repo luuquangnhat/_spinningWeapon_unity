@@ -9,8 +9,6 @@ public class ManagerScript : MonoBehaviour
 {
 
     public GameObject yBotPrefab;
-    public GameObject weaponPrefabSlot1;
-    public GameObject weaponPrefabObj1;
 
     public int isMainPosition;
     List<GameObject> ListYBot;
@@ -24,23 +22,26 @@ public class ManagerScript : MonoBehaviour
         {
             GameObject character = Instantiate(yBotPrefab);
             character.transform.position = new Vector3(i * 5, 0, 0);
-            character.AddComponent<CharacterMoving1>();
-            character.AddComponent<TwoDimensionalAnimationStateController>();
+            character.AddComponent<ManagerCharacterMovingPosition>();
+            character.AddComponent<ManagerCharacterMovingAnimation>();
+            character.AddComponent<SphereCollider>();
 
             if (i == isMainPosition)
             {
-                character.GetComponent<CharacterMoving1>().IsMain = true;
-                character.GetComponent<TwoDimensionalAnimationStateController>().IsMain = true;
+                character.GetComponent<ManagerCharacterMovingPosition>().IsMain = true;
+                character.GetComponent<ManagerCharacterMovingAnimation>().IsMain = true;
+                character.GetComponent<ManagerCharacterStatus>().Type = ManagerCharacterStatus.CharacterType.Main;
+
+            } else
+            {
+                character.GetComponent<ManagerCharacterMovingPosition>().IsMain = false;
+                character.GetComponent<ManagerCharacterMovingAnimation>().IsMain = false;
+                character.GetComponent<ManagerCharacterStatus>().Type = ManagerCharacterStatus.CharacterType.Enemy;
+
             }
+
             ListYBot.Add(character);
         }
-
-        GameObject weaponSlot1 = Instantiate(weaponPrefabSlot1, ListYBot[isMainPosition].transform);
-        weaponSlot1.GetComponent<ManagerWeaponSlot1>().updatePosition(ListYBot[isMainPosition]);
-
-        GameObject weaponObj1 = Instantiate(weaponPrefabObj1, ListYBot[isMainPosition].transform);
-        weaponObj1.GetComponent<ManagerWeaponObj1>().setSlotTarget(weaponSlot1);
-        weaponObj1.GetComponent<ManagerWeaponObj1>().currentAction = ActionWeapon.IsIdle;
 
         //StartCoroutine(coroutineHandleChangeMain());
     }
@@ -56,8 +57,8 @@ public class ManagerScript : MonoBehaviour
         yield return new WaitForSeconds(5);
         releaseIsMain();
         isMainPosition = 2;
-        ListYBot[isMainPosition].GetComponent<CharacterMoving1>().IsMain = true;
-        ListYBot[isMainPosition].GetComponent<TwoDimensionalAnimationStateController>().IsMain = true;
+        ListYBot[isMainPosition].GetComponent<ManagerCharacterMovingPosition>().IsMain = true;
+        ListYBot[isMainPosition].GetComponent<ManagerCharacterMovingAnimation>().IsMain = true;
     }
 
     void releaseIsMain()
@@ -65,8 +66,8 @@ public class ManagerScript : MonoBehaviour
         for (int i = 0; i < ListYBot.Count; i++)
         {
 
-            ListYBot[i].GetComponent<CharacterMoving1>().IsMain = false;
-            ListYBot[i].GetComponent<TwoDimensionalAnimationStateController>().IsMain = false;
+            ListYBot[i].GetComponent<ManagerCharacterMovingPosition>().IsMain = false;
+            ListYBot[i].GetComponent<ManagerCharacterMovingAnimation>().IsMain = false;
         }
     }
 
@@ -78,8 +79,8 @@ public class ManagerScript : MonoBehaviour
             {
                 Debug.Log($"isMainPosition {isMainPosition}");
                 Debug.Log($"i {i}");
-                ListYBot[isMainPosition].GetComponent<CharacterMoving1>().IsMain = true;
-                ListYBot[isMainPosition].GetComponent<TwoDimensionalAnimationStateController>().IsMain = true;
+                ListYBot[isMainPosition].GetComponent<ManagerCharacterMovingPosition>().IsMain = true;
+                ListYBot[isMainPosition].GetComponent<ManagerCharacterMovingAnimation>().IsMain = true;
             }
         }
     }

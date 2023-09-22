@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class ManagerWeaponSlot1 : MonoBehaviour
 {
-    public GameObject MainTarget;
-    public float speed = 20;
+    public float speed = 40f;
 
     // Start is called before the first frame update
     void Start()
@@ -13,24 +12,23 @@ public class ManagerWeaponSlot1 : MonoBehaviour
         
     }
 
-    public void updatePosition(GameObject mainTarget)
+    public void updatePosition()
     {
-        MainTarget = mainTarget;
-        if (mainTarget)
+        if (this.transform.parent)
         {
             transform.position = new Vector3(
-                mainTarget.transform.position.x,
-                mainTarget.transform.position.y + 1,
-                mainTarget.transform.position.z + 1
+                this.transform.parent.transform.position.x,
+                this.transform.parent.transform.position.y + 1,
+                this.transform.parent.transform.position.z + 1
             );
         }
     }
     // Update is called once per frame
     void Update()
     {
-        if (MainTarget)
+        if (this.transform.parent)
         {
-            transform.RotateAround(MainTarget.transform.localPosition + Vector3.down, Vector3.down, speed * Time.deltaTime);
+            transform.RotateAround(this.transform.parent.transform.localPosition + Vector3.down, Vector3.down, speed * Time.deltaTime);
         }
     }
 }

@@ -171,6 +171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 364149421375404589}
   - component: {fileID: 6047660490849738839}
+  - component: {fileID: -3402914738464906700}
   m_Layer: 0
   m_Name: Y Bot@Idle_withSkin
   m_TagString: Untagged
@@ -217,6 +218,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3402914738464906700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028623178337804439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fab171fbae13b8d4cb4345ec28a3c85c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSlotPrefab: {fileID: 8570334011075531939, guid: 8fda9c0471e305d479e8c32ef1a62a93, type: 3}
+  weaponObjPrefab:
+  - {fileID: 6467232239394211148, guid: 4ee152f6499a9b346a3cf62c3a6b6f4c, type: 3}
+  Type: 0
 --- !u!1 &1158128528218171947
 GameObject:
   m_ObjectHideFlags: 0
