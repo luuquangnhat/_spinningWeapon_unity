@@ -3,12 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using static ManagerWeaponObj1;
 
 public class ManagerScript : MonoBehaviour
 {
 
-    public GameObject yBot;
-    public GameObject spinningCube;
+    public GameObject yBotPrefab;
+    public GameObject weaponPrefabSlot1;
+    public GameObject weaponPrefabObj1;
+
     public int isMainPosition;
     List<GameObject> ListYBot;
 
@@ -17,22 +20,28 @@ public class ManagerScript : MonoBehaviour
     {
         ListYBot = new List<GameObject>();
         //GameObject baseStanding = new GameObject("Test object", typeof(TestComponent), typeof(CharacterController));
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 5; i++)
         {
-            GameObject character = Instantiate(yBot);
+            GameObject character = Instantiate(yBotPrefab);
             character.transform.position = new Vector3(i * 5, 0, 0);
             character.AddComponent<CharacterMoving1>();
             character.AddComponent<TwoDimensionalAnimationStateController>();
 
             if (i == isMainPosition)
             {
-                character.GetComponent< CharacterMoving1>().IsMain = true;
+                character.GetComponent<CharacterMoving1>().IsMain = true;
                 character.GetComponent<TwoDimensionalAnimationStateController>().IsMain = true;
             }
             ListYBot.Add(character);
         }
-        GameObject weapon = Instantiate(spinningCube, ListYBot[isMainPosition].transform);
-        weapon.GetComponent<ManageWeapon>().mainTarget = ListYBot[isMainPosition];
+
+        GameObject weaponSlot1 = Instantiate(weaponPrefabSlot1, ListYBot[isMainPosition].transform);
+        weaponSlot1.GetComponent<ManagerWeaponSlot1>().updatePosition(ListYBot[isMainPosition]);
+
+        GameObject weaponObj1 = Instantiate(weaponPrefabObj1, ListYBot[isMainPosition].transform);
+        weaponObj1.GetComponent<ManagerWeaponObj1>().setSlotTarget(weaponSlot1);
+        weaponObj1.GetComponent<ManagerWeaponObj1>().currentAction = ActionWeapon.IsIdle;
+
         //StartCoroutine(coroutineHandleChangeMain());
     }
 

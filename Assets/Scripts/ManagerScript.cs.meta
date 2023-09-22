@@ -3,7 +3,10 @@ guid: d30372dcc17cd6645ba28aa33664c322
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - yBotPrefab: {fileID: 1028623178337804439, guid: c010eefb3bb24bb4a94728b3300814d9, type: 3}
+  - weaponPrefabSlot1: {fileID: 8570334011075531939, guid: 8fda9c0471e305d479e8c32ef1a62a93, type: 3}
+  - weaponPrefabObj1: {fileID: 6467232239394211148, guid: 4ee152f6499a9b346a3cf62c3a6b6f4c, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
