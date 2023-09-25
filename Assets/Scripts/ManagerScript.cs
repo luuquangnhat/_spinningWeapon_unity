@@ -31,13 +31,11 @@ public class ManagerScript : MonoBehaviour
                 character.GetComponent<ManagerCharacterMovingPosition>().IsMain = true;
                 character.GetComponent<ManagerCharacterMovingAnimation>().IsMain = true;
                 character.GetComponent<ManagerCharacterStatus>().Type = ManagerCharacterStatus.CharacterType.Main;
-
             } else
             {
                 character.GetComponent<ManagerCharacterMovingPosition>().IsMain = false;
                 character.GetComponent<ManagerCharacterMovingAnimation>().IsMain = false;
                 character.GetComponent<ManagerCharacterStatus>().Type = ManagerCharacterStatus.CharacterType.Enemy;
-
             }
 
             ListYBot.Add(character);

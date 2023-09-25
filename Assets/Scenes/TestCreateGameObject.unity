@@ -364,9 +364,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yBotPrefab: {fileID: 1028623178337804439, guid: c010eefb3bb24bb4a94728b3300814d9, type: 3}
-  weaponPrefabSlot1: {fileID: 8570334011075531939, guid: 8fda9c0471e305d479e8c32ef1a62a93, type: 3}
-  weaponPrefabObj1: {fileID: 6467232239394211148, guid: 4ee152f6499a9b346a3cf62c3a6b6f4c, type: 3}
-  attackRangeCloseWeaponPrefab: {fileID: 5499538294659579422, guid: abd655ad2e08f524aaed367820bd1858, type: 3}
   isMainPosition: 0
 --- !u!1 &1311211619
 GameObject:
@@ -539,7 +536,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1472183782}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0, y: 30, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

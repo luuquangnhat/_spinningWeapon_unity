@@ -233,6 +233,8 @@ MonoBehaviour:
   weaponSlotPrefab: {fileID: 8570334011075531939, guid: 8fda9c0471e305d479e8c32ef1a62a93, type: 3}
   weaponObjPrefab:
   - {fileID: 6467232239394211148, guid: 4ee152f6499a9b346a3cf62c3a6b6f4c, type: 3}
+  - {fileID: 2957333836786084434, guid: 04601ab321e30a748bee05c0e8e0a035, type: 3}
+  - {fileID: 4065090611312632061, guid: c8c6c795f1270d7498949806b804a474, type: 3}
   Type: 0
 --- !u!1 &1158128528218171947
 GameObject:

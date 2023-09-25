@@ -16,15 +16,14 @@ public class ManagerWeaponObj1 : MonoBehaviour
         IsIdle, IsAttacking, IsStopAttacking
     }
 
-    // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    public void setSlotTarget(GameObject slotTarget)
+    void Update()
     {
-        SlotTarget = slotTarget;
+        handleTakeAction();
     }
 
     private void OnEnable()
@@ -32,10 +31,9 @@ public class ManagerWeaponObj1 : MonoBehaviour
         currentAction = ActionWeapon.IsIdle;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void setSlotTarget(GameObject slotTarget)
     {
-        handleTakeAction();
+        SlotTarget = slotTarget;
     }
 
     void handleTakeAction()
@@ -46,10 +44,15 @@ public class ManagerWeaponObj1 : MonoBehaviour
             case ActionWeapon.IsIdle:
                 handleIsIdle();
                 break;
+            case ActionWeapon.IsAttacking:
+                //handleIsAttacking();
+                break;
+            case ActionWeapon.IsStopAttacking:
+                handleIsStopAttacking();
+                break;
             default:
                 throw new System.Exception("Error");
         }
-
     }
 
     void handleIsIdle()
