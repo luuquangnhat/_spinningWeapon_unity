@@ -1,15 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq.Expressions;
+using System;
 using UnityEngine;
 
 public class ManagerWeaponObj1 : MonoBehaviour
 {
     public GameObject SlotTarget;
     public ActionWeapon currentAction;
-    public int wpDamage = 20;
-    public int wpAttackSped = 2;
-    public int wpRange = 20;
+    private WeaponStatusData weaponData;
+
+    public WeaponStatusData WeaponData
+    {
+        get => weaponData;
+    }
 
     public enum ActionWeapon
     {
@@ -18,7 +19,17 @@ public class ManagerWeaponObj1 : MonoBehaviour
 
     void Start()
     {
+        fakeData();
+    }
 
+    void fakeData()
+    {
+        weaponData = new WeaponStatusData();
+        weaponData.id = Guid.NewGuid().ToString();
+        weaponData.wpName = this.gameObject.name;
+        weaponData.wpDamage = 20;
+        weaponData.wpRange = 1;
+        weaponData.wpAttackSpeed = 2;
     }
 
     void Update()

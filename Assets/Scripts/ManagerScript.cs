@@ -1,9 +1,6 @@
-using Assets.Singleton;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
-using static ManagerWeaponObj1;
 
 public class ManagerScript : MonoBehaviour
 {
@@ -17,7 +14,6 @@ public class ManagerScript : MonoBehaviour
     void Start()
     {
         ListYBot = new List<GameObject>();
-        //GameObject baseStanding = new GameObject("Test object", typeof(TestComponent), typeof(CharacterController));
         for (int i = 0; i < 5; i++)
         {
             GameObject character = Instantiate(yBotPrefab);
@@ -45,7 +41,6 @@ public class ManagerScript : MonoBehaviour
     }
 
 
-    // Update is called once per frame
     void Update()
     {
     }

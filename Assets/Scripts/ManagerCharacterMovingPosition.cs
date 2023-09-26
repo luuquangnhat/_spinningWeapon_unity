@@ -1,20 +1,14 @@
-using Palmmedia.ReportGenerator.Core.Common;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 
 public class ManagerCharacterMovingPosition : MonoBehaviour
 {
-    // variable to store the instance of the PlayerInput
     PlayerInput input;
     private float velocity;
     private float acceleration = 2f;
     Vector3 storeDirection;
+    Vector2 currentDirection;
+
 
     private bool isMain;
 
@@ -54,15 +48,12 @@ public class ManagerCharacterMovingPosition : MonoBehaviour
         }
     }
 
-    // variable to store player input values
-    Vector2 currentDirection;
     void Awake()
     {
         input = new PlayerInput();
     }
 
-    //public float speed = 10f ;
-    // Update is called once per frame
+
     void Update()
     {
         handleMovement();

@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ManagerCharacterStatus : MonoBehaviour
@@ -19,6 +17,14 @@ public class ManagerCharacterStatus : MonoBehaviour
     [Header("List Property")]
     private List<ManagerWeaponSlot1> handleSlots;
     private List<string> weaponsName;
+
+    public List<GameObject> WeaponEquips
+    {
+        get
+        {
+            return weaponEquips;
+        }
+    }
 
     public Guid ID
     {
@@ -48,7 +54,7 @@ public class ManagerCharacterStatus : MonoBehaviour
 
         CharacterStatusData fakeData = new CharacterStatusData();
         fakeData.id = Guid.NewGuid().ToString();
-        fakeData.weaponsName = new string[3] {"AxeBasic", "Bow", "Spear"}.ToList();
+        fakeData.weaponsName = new string[3] { "AxeBasic", "Bow", "Spear" }.ToList();
         onReceiveData(fakeData);
     }
 
@@ -68,7 +74,6 @@ public class ManagerCharacterStatus : MonoBehaviour
         GameObject weaponSlot = Instantiate(weaponSlotPrefab, this.transform);
         weaponSlot.GetComponent<ManagerWeaponSlot1>().setPosition(noOfSlot, indexSlot);
         handleSlots.Add(weaponSlot.GetComponent<ManagerWeaponSlot1>());
-
     }
 
     private void createWeaponObj(string prefabName)
@@ -78,7 +83,7 @@ public class ManagerCharacterStatus : MonoBehaviour
             if (weaponObjPrefab[i].gameObject.name == prefabName)
             {
                 GameObject weaponObj = Instantiate(weaponObjPrefab[i], this.transform);
-                //ManagerWeaponSlot1 slot = handleSlots.Where(m=>m.isEquipped == false).FirstOrDefault();
+                //ManagerWeaponSlot1 slot = handleSlots.Where(m=>m.isEquipped == false).FirstOrDefault(); //linq
                 for (int j = 0; j < handleSlots.Count; j++)
                 {
                     if (!handleSlots[j].isEquipped)
@@ -93,6 +98,7 @@ public class ManagerCharacterStatus : MonoBehaviour
                         }
                     }
                 }
+                weaponEquips.Add(weaponObj);
             }
         }
     }

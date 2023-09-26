@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ManagerWeaponSlot1 : MonoBehaviour
@@ -8,31 +6,16 @@ public class ManagerWeaponSlot1 : MonoBehaviour
     public float rotation = 10f;
     public bool isEquipped;
     public bool isMove;
-    private float weaponDistanceX = 0f;
     private float weaponDistanceY = 1f;
-    private float weaponDistanceZ = 1f;
-    //private float distanceWeaponAndCharacter = 1;
-
-    void Start()
-    {
-
-    }
 
     public void setPosition(int count, int index)
     {
-
         float degree = 360 / count * index;
         //degree += 90;
-
-
         float radius = 1;
-
-        Debug.Log($"distance {radius}");
         float rad = Mathf.PI * degree / 180;
         float weaponPosX = this.transform.parent.position.x + radius * Mathf.Cos(rad);
         float weaponPosY = this.transform.parent.position.y + radius * Mathf.Sin(rad);
-
-        Debug.Log($"distance {radius}, rad {rad}, (x, y) : ({weaponPosX}, {weaponPosY}) ");
         reUpdatePosition(new Vector3(
           weaponPosX,
           this.transform.parent.position.y + weaponDistanceY,
@@ -61,7 +44,6 @@ public class ManagerWeaponSlot1 : MonoBehaviour
             Vector3 pointB = transform.position;
 
             float angle = calAngle(point0, pointA, pointB);
-
         }
     }
 }
