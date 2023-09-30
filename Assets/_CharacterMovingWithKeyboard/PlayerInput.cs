@@ -29,7 +29,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Value"",
+                    ""shortRangeType"": ""Value"",
                     ""id"": ""1bfa2393-d142-4d86-abf7-8f2940e24209"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -38,7 +38,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Run"",
-                    ""type"": ""Button"",
+                    ""shortRangeType"": ""Button"",
                     ""id"": ""ffe7bab5-a568-479f-88fe-556a72926d3d"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",

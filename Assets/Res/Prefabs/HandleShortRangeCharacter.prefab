@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 5499538294659579421}
   - component: {fileID: -2992847084452366156}
   - component: {fileID: 1320026107342312401}
+  - component: {fileID: -2776617955194485545}
   m_Layer: 0
-  m_Name: AttackRangeShortRangeWeapon
+  m_Name: HandleShortRangeCharacter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,5 +70,19 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 2
+  m_Radius: 4.84
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-2776617955194485545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5499538294659579422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f574cf8de55fcd14c857057d2508a266, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 7
+  shortRangeType: 0

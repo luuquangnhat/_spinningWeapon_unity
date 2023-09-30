@@ -20,14 +20,14 @@ public class ManagerScript : MonoBehaviour
             character.transform.position = new Vector3(i * 5, 0, 0);
             character.AddComponent<ManagerCharacterMovingPosition>();
             character.AddComponent<ManagerCharacterMovingAnimation>();
-            character.AddComponent<SphereCollider>();
 
             if (i == isMainPosition)
             {
                 character.GetComponent<ManagerCharacterMovingPosition>().IsMain = true;
                 character.GetComponent<ManagerCharacterMovingAnimation>().IsMain = true;
                 character.GetComponent<ManagerCharacterStatus>().Type = ManagerCharacterStatus.CharacterType.Main;
-            } else
+            }
+            else
             {
                 character.GetComponent<ManagerCharacterMovingPosition>().IsMain = false;
                 character.GetComponent<ManagerCharacterMovingAnimation>().IsMain = false;
@@ -36,7 +36,6 @@ public class ManagerScript : MonoBehaviour
 
             ListYBot.Add(character);
         }
-
         //StartCoroutine(coroutineHandleChangeMain());
     }
 
